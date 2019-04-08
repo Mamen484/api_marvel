@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>{% if title is defined %}{{ title }}{% else %}Header{% endif %}</h1>
+    </div>
+
+    <div class="alert alert-danger">
+        <ul class="list-unstyled mb-0">
+            <li>
+                <span class="initialism form-error-icon badge badge-primary">Bienvenue sur la page d'inscription</span>
+            </li>
+        </ul>
+    </div>
+
+    {{ form(form) }}
+
+{% endblock %}

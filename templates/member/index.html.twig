@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>{% if title is defined %}{{ title }}{% else %}Header{% endif %}</h1>
+    </div>
+
+    <div class="alert alert-secondary">
+        <ul class="list-unstyled mb-0">
+            <li>
+                <span class="initialism form-error-icon badge badge-primary">Bienvenue sur la page membre</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive list">
+                        <table class="table">
+                            <thead>
+                            <tr class="text-center">
+                                <th>Nom du personnage</th>
+                                <th>Catégorie</th>
+                                <th>Description</th>
+                                <th>Nom du créateur</th>
+                                <th>Date Creation</th>
+                                <th>Image</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for comic in marvel %}
+                                <tr>
+                                    <td>{{ comic.name }}</td>
+                                    <td>{{ comic.category }}</td>
+                                    <td>{{ comic.description }}</td>
+                                    <td>{{ comic.nameCreator }}</td>
+                                    <td>{{ comic.emailContact }}</td>
+                                    <td>{{ comic.referenceAnnonce }}</td>
+                                    <td>{{ comic.lieuAdresse }}</td>
+                                    <td>{{ comic.dateCreation }}</td>
+                                    <td>{{ comic.image }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="17">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box -->
+    </div>
+{% endblock %}
